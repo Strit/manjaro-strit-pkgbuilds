@@ -1,0 +1,19 @@
+post_upgrade() {
+	/usr/bin/pacman-key --init
+	/usr/bin/pacman-key -r 035B1D49
+	/usr/bin/pacman-key --lsign-key 035B1D49
+	/usr/bin/pacman-key --populate manjaro-strit
+#	if /usr/bin/pacman-key -l >/dev/null 2>&1; then
+#		/usr/bin/pacman-key --populate manjaro-strit
+#	else
+#		echo " >>> Run \`pacman-key --init\` to set up your pacman keyring."
+#		echo " >>> Then run \`pacman-key --populate manjaro-strit\` to install the Manjaro keyring."
+#	fi
+#
+}
+
+post_install() {
+	if [ -x usr/bin/pacman-key ]; then
+		post_upgrade
+	fi
+}

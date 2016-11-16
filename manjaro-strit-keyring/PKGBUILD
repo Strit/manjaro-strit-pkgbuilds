@@ -1,0 +1,29 @@
+# Based on the file created for Arch Linux by:
+# Pierre Schmitz <pierre@archlinux.de>
+# And based on a file created for Manjaro by:
+# Philip Müller <philm@manjaro.org>
+
+#Maintainer: Dan Johansen <strit@strits.dk>
+
+
+pkgname=manjaro-strit-keyring
+pkgver=20160524
+pkgrel=1
+pkgdesc='Manjaro Strit PGP keyring'
+arch=('any')
+url='http://www.strits.dk'
+license=('GPL')
+install="${pkgname}.install"
+source=('Makefile'
+        'manjaro-strit.gpg'
+        'manjaro-strit-revoked'
+        'manjaro-strit-trusted')
+sha256sums=('a03a6e4f10458de2a9eab9d95e8322f6582eac191170e838dc88519b18a579bf'
+            'be503ded56243d3adcef40dbabe2913f393566ae01d71c4730e7e440cd5235c0'
+            'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+            '54ef4c82e5328f59fca5dfe9920a043243a6f122691e0993b76c14a8dca15f46')
+
+package() {
+	cd "${srcdir}"
+	make PREFIX=/usr DESTDIR=${pkgdir} install
+}

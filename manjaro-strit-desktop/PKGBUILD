@@ -1,0 +1,16 @@
+# Maintainer: Dan Johansen <strit83@gmail.com>
+
+pkgname=manjaro-strit-desktop
+pkgver=1.2
+pkgrel=1
+pkgdesc="Meta package to install the Manjaro Strit applications"
+arch=('i686' 'x86_64')
+url="http://www.strits.dk"
+license=('Unknown')
+groups=(manjaro-strit)
+depends=('gparted' 'manjaro-tools-iso' 'manjaro-tools-pkg' 'chromium' 'geany' 'filezilla' 'conky' 'easytag' 'youtube-dl' 'deluge' 'baobab' 'dropbox' 'virtualbox' 'libreoffice-fresh' 'mumble-git' 'pidgin' 'evolution' 'track-o-bot-git' 'brasero' 'galculator' 'manjaro-printer' 'steam-manjaro' 'wine-staging' 'asunder' 'handbrake' 'soundconverter' 'kdenlive' 'audacity' 'audacious' 'smplayer' 'python2-pysqlite' 'teamviewer' 'griffith-pdffix' 'owncloud-client' 'obs-studio')
+
+
+package() {
+	echo "Installed Manjaro-Strit!"
+}

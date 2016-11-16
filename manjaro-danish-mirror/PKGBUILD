@@ -1,0 +1,46 @@
+# Maintainer: Dan Johansen <strit83@gmail.com>
+
+pkgname=manjaro-danish-mirror
+pkgver=1.2
+pkgrel=17
+#epoch=
+pkgdesc="The Danish mirror used for Manjaro Strit"
+arch=('any')
+url="https://mirror.strits.dk"
+license=('Unknown')
+groups=(manjaro-strit)
+#depends=()
+#makedepends=()
+#checkdepends=()
+#optdepends=()
+provides=(manjaro-danish-mirror)
+conflicts=(manjaro-danish-mirror)
+#replaces=()
+#backup=()
+#options=()
+install=manjaro-danish-mirror.install
+#changelog=
+source=("Denmark")
+#noextract=()
+#validpgpkeys=()
+
+#prepare() {
+#	cd "$pkgname-$pkgver"
+#	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
+#}
+
+#build() {
+#	cd "$pkgname-$pkgver"
+#	./configure --prefix=/usr
+#	make
+#}
+
+#check() {
+#	cd "$pkgname-$pkgver"
+#	make -k check
+#}
+
+package() {
+	install -Dm755 ${srcdir}/Denmark ${pkgdir}/etc/pacman.d/mirrors/Denmark
+}
+md5sums=('6bfb108c624caccda134a7dbc5bf1479')

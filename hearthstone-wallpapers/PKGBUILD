@@ -1,0 +1,54 @@
+# Maintainer: Dan Johansen <strit83@gmail.com>
+
+pkgname=hearthstone-wallpapers
+pkgver=1.1
+pkgrel=1
+#epoch=
+pkgdesc="A collection of Full HD Hearthstone wallpapers"
+arch=('any')
+url="http://eu.battle.net"
+license=('Unknown')
+groups=(manjaro-strit)
+#depends=()
+#makedepends=()
+#checkdepends=()
+#optdepends=()
+conflicts=(hearthstone-wallpapers)
+#replaces=()
+#backup=()
+#options=()
+#install=
+#changelog=
+source=("hearthstone-wallpapers.tar.gz")
+#noextract=()
+#validpgpkeys=()
+
+#prepare() {
+#	cd "$pkgname-$pkgver"
+#	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
+#}
+
+#build() {
+#	cd "$pkgname-$pkgver"
+#	./configure --prefix=/usr
+#	make
+#}
+
+#check() {
+#	cd "$pkgname-$pkgver"
+#	make -k check
+#}
+
+package() {
+	install -Dm755 ${pkgname}/brm_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/brm.jpg
+	install -Dm755 ${pkgname}/gvg_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/gvg.jpg
+	install -Dm755 ${pkgname}/hearthstone_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/hs.jpg
+	install -Dm755 ${pkgname}/ipad_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/ipad.jpg
+	install -Dm755 ${pkgname}/naxx_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/naxx.jpg
+	install -Dm755 ${pkgname}/penny-arcade_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/pa.jpg
+	install -Dm755 ${pkgname}/tavern-brawl_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/tb.jpg
+	install -Dm755 ${pkgname}/tgt_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/tgt.jpg
+	install -Dm755 ${pkgname}/old-gods_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/og.jpg
+	install -Dm755 ${pkgname}/onik_wallpaper1920x1080.jpg ${pkgdir}/usr/share/backgrounds/onik.jpg
+}
+md5sums=('5f1597d50fde0a220249d7d4770c972b')

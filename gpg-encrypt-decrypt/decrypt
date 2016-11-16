@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DECRYPTED="$(echo "$1" | sed 's/.gpg$//')"
+
+gpg --output "$DECRYPTED" --decrypt "$1"
+
+if	[[ "$DECRYPTED" =~ .*tar.gz* ]]
+	then tar xzf "$DECRYPTED"
+	echo "Folder decrypted"
+	rm "$DECRYPTED"
+	else echo "File decrypted"
+fi

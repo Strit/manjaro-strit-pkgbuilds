@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -d "$1" ]
+	then tar czf "$1".tar.gz "$1" && gpg --output "$1".tar.gz.gpg --encrypt "$1".tar.gz && rm "$1".tar.gz
+	echo "Folder encrypted and saved as "$1".tar.gz.gpg"
+	else gpg --output "$1".gpg --encrypt "$1"
+	echo "File encrypted and saved as "$1".gpg"
+fi

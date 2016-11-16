@@ -1,0 +1,53 @@
+# Maintainer: Dan Johansen <strit83@gmail.com>
+
+pkgname=gpg-encrypt-decrypt
+pkgver=0.1
+pkgrel=3
+#epoch=
+pkgdesc="A couple of small scripts for encrypting and decrypting files and folders with GPG"
+arch=('any')
+#url=""
+license=('Unknown')
+#groups=(manjaro-strit)
+#depends=()
+#makedepends=()
+#checkdepends=()
+#optdepends=()
+provides=(gpg-encrypt-decrypt)
+#conflicts=()
+#replaces=()
+#backup=(decrypt encrypt)
+#options=()
+#install=
+#changelog=
+source=('encrypt'
+	'decrypt')
+#noextract=()
+#validpgpkeys=()
+
+#prepare() {
+#	cd "$pkgname-$pkgver"
+#	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
+#}
+
+#build() {
+#	cd "$pkgname-$pkgver"
+#	./configure --prefix=/usr
+#	make
+#}
+
+#check() {
+#	cd "$pkgname-$pkgver"
+#	make -k check
+#}
+
+package() {
+	install -dm755 $pkgdir/opt/$pkgname/
+	install -m755 $srcdir/encrypt $pkgdir/opt/$pkgname/encrypt
+	install -m755 $srcdir/decrypt $pkgdir/opt/$pkgname/decrypt
+	install -d $pkgdir/usr/bin/
+	ln -s "/opt/$pkgname/encrypt" "$pkgdir/usr/bin/encrypt"
+	ln -s "/opt/$pkgname/decrypt" "$pkgdir/usr/bin/decrypt"
+}
+md5sums=('163cda71125edaa283502655db9b4f00'
+	'e10295a9976c7b47f09931c173beacc1')

@@ -1,0 +1,28 @@
+# Maintainer: Dan Johansen <strit83@gmail.com>
+
+pkgname=manjaro-strit-kde-settings
+pkgver=20160924
+pkgrel=1
+pkgdesc="Manjaro Strit KDE settings"
+depends=('manjaro-base-skel' 'gtk-theme-maia' 'maia-icon-theme' 'plasma5-themes-maia' 'manjaro-artwork')
+conflicts=('manjaro-desktop-settings')
+provides=('manjaro-desktop-settings')
+arch=('any')
+url="https://www.strits.dk"
+license=('GPL')
+source=($pkgname.tar.gz)
+sha256sums=('a86b9f956594c244147b144cbbf43447eb97e3142f8f7cd09055c3ba9f5aaf26')
+
+pkgver() {
+	date +%Y%m%d
+}
+
+_inst_dir(){
+	install -d $pkgdir/etc
+	cp -r $srcdir/etc/skel $pkgdir/etc
+}
+
+package() {
+
+	_inst_dir
+}
