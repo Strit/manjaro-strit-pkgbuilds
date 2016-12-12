@@ -2,14 +2,14 @@
 pkgname=wire-desktop
 _pkgname=wire
 pkgver=2.11.2685
-pkgrel=1
+pkgrel=2
 pkgdesc='Modern, private messenger. Based on Electron.'
 arch=('x86_64' 'i686')
 url='https://wire.com/'
 license=('GPL3')
 conflicts=('wire-desktop-bin')
 depends=('nss' 'alsa-lib' 'libxss' 'gconf' 'gtk2' 'libxtst')
-makedepends=('yarn' 'grunt-cli' 'gendesk' 'python2')
+makedepends=('yarn' 'grunt-cli' 'gendesk' 'npm' 'python2')
 provides=('wire-desktop')
 source=("https://github.com/wireapp/wire-desktop/archive/release/"$pkgver".tar.gz")        
 sha256sums=('e68ccb04d1f0741e0b703c7cff37d0d208ae696bf3cbb7f2f0da9c1283d50b5f')
