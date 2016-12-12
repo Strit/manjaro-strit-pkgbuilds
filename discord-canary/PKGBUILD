@@ -2,8 +2,8 @@
 # Contributor: Anthony Anderson <aantony4122@gmail.com>
 
 pkgname=discord-canary
-pkgver=0.0.8
-pkgrel=5
+pkgver=0.0.11
+pkgrel=2
 pkgdesc='Discord Canary linux release'
 arch=('x86_64')
 url='https://discordapp.com/'
