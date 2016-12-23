@@ -2,7 +2,7 @@
 
 pkgname=manjaro-strit-kde-settings
 pkgver=20161128
-pkgrel=3
+pkgrel=1
 pkgdesc="Manjaro Strit KDE settings"
 depends=('maia-icon-theme' 'plasma5-themes-maia' 'manjaro-artwork')
 conflicts=('manjaro-desktop-settings')
@@ -11,7 +11,7 @@ arch=('any')
 url="https://www.strits.dk"
 license=('GPL')
 source=($pkgname.tar.gz)
-sha256sums=('088bb4a8f6cd4cb36757b1525dabf61e676c5b01b89c0ed2a288e0ec6dc112c2')
+sha256sums=('ab2079e7533258e81669720f78a45a093f6c4f89f813f99b051b3f06085df423')
 
 pkgver() {
 	date +%Y%m%d
