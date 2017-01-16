@@ -1,0 +1,16 @@
+# Maintainer: Dan Johansen <strit83@gmail.com>
+
+pkgname=manjaro-strit-kde-desktop
+pkgver=0.1
+pkgrel=1
+pkgdesc="Meta package to install the Manjaro Strit KDE applications"
+arch=('i686' 'x86_64')
+url="http://www.strits.dk"
+license=('Unknown')
+groups=(manjaro-strit)
+depends=( 'manjaro-tools-iso' 'manjaro-tools-pkg' 'chromium' 'filezilla' 'conky' 'easytag' 'youtube-dl' 'qbittorrent' 'owncloud-client' 'virtualbox' 'libreoffice-fresh' 'mumble-git' 'kmail' 'k3b-git' 'manjaro-printer' 'steam-manjaro' 'wine-staging' 'handbrake' 'kdenlive' 'audacity' 'audacious-qt5' 'smplayer' 'python2-pysqlite' 'griffith-pdffix' 'obs-studio')
+
+
+package() {
+	echo "Installed Manjaro-Strit KDE Desktop Applications!"
+}
