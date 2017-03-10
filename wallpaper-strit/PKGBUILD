@@ -2,49 +2,21 @@
 
 pkgname=wallpaper-strit
 pkgver=0.1
-pkgrel=5
+pkgrel=6
 #epoch=
 pkgdesc="A collection of nice wallpapers for Manjaro Strit"
 arch=('any')
 url="http://www.strits.dk"
 license=('Unknown')
 groups=(manjaro-strit)
-#depends=()
-#makedepends=()
-#checkdepends=()
-#optdepends=()
-provides=(wallpaper-strit)
-conflicts=(wallpaper-strit)
-#replaces=()
-#backup=()
-#options=()
-#install=
-#changelog=
 source=("wallpaper-strit.tar.gz")
-#noextract=()
-#validpgpkeys=()
-
-#prepare() {
-#	cd "$pkgname-$pkgver"
-#	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
-#}
-
-#build() {
-#	cd "$pkgname-$pkgver"
-#	./configure --prefix=/usr
-#	make
-#}
-
-#check() {
-#	cd "$pkgname-$pkgver"
-#	make -k check
-#}
 
 package() {
 	install -Dm755 ${pkgname}/arch-blue.jpg ${pkgdir}/usr/share/backgrounds/arch-blue.jpg
 	install -Dm755 ${pkgname}/arch-skull.jpg ${pkgdir}/usr/share/backgrounds/arch-skull.jpg
 	install -Dm755 ${pkgname}/arch-universe.png ${pkgdir}/usr/share/backgrounds/arch-universe.png
 	install -Dm755 ${pkgname}/green-space.jpg ${pkgdir}/usr/share/backgrounds/green-space.jpg
+	install -Dm755 ${pkgname}/manjaro-blocks.jpg ${pkgdir}/usr/share/backgrounds/manjaro-blocks.jpg
 	install -Dm755 ${pkgname}/manjaro-strit.jpg ${pkgdir}/usr/share/backgrounds/manjaro-strit.jpg
 }
-md5sums=('99cb6bf41b5e23d2fc67b473dcf67e1a')
+md5sums=('e45769b6f5287348f958eea1a90555c1')
