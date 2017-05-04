@@ -1,0 +1,56 @@
+# Maintainer: Ramon Buldó <ramon@manjaro.org>
+
+pkgbase=artwork-ghost
+pkgname=('plasma5-themes-ghost' 'sddm-ghost-theme')
+pkgver=0.0.1
+pkgrel=9
+_gitcommit=ca97142ddc3d8d3e6ce03f5d18c7655b4f93cd2b
+url=https://github.com/Strit/artwork-ghost/
+arch=('any')
+license=('LGPL')
+makedepends=('extra-cmake-modules' 'plasma-framework')
+
+source=("ghost-$pkgver-$pkgrel.tar.gz::$url/archive/$_gitcommit.tar.gz")
+md5sums=('SKIP')
+
+prepare() {
+  mv $srcdir/artwork-ghost-$_gitcommit $srcdir/ghost
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../ghost \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+  make
+}
+
+
+package_plasma5-themes-ghost() {
+  pkgdesc='Ghost theme for KDE Plasma 5'
+  depends=('breeze')
+  optdepends=('breath-icon-theme: light icon theme'
+              'breath-dark-icon-theme: dark icon theme')
+  replaces=('ghost-themes')
+  cd build
+  make DESTDIR="${pkgdir}" install
+  rm -rf "${pkgdir}/usr/share/sddm"
+  rm -rf "${pkgdir}/usr/share/icons"
+  rm -rf "${pkgdir}/usr/share/wallpapers"
+}
+
+package_sddm-ghost-theme() {
+  pkgdesc="Ghost theme for SDDM"
+  depends=('plasma-framework' 'plasma-workspace' 'plasma5-themes-ghost' 'sddm')
+  cd build
+  make DESTDIR="${pkgdir}" install
+  rm -rf "${pkgdir}/usr/share/color-schemes"
+  rm -rf "${pkgdir}/usr/share/icons"
+  rm -rf "${pkgdir}/usr/share/kservices5"
+  rm -rf "${pkgdir}/usr/share/metainfo"
+  rm -rf "${pkgdir}/usr/share/plasma"
+  rm -rf "${pkgdir}/usr/share/wallpapers"
+  rm -rf "${pkgdir}/usr/share/aurorae/"
+} 
