@@ -1,10 +1,10 @@
 # Maintainer: Ramon Buldó <ramon@manjaro.org>
 
 pkgbase=artwork-ghost
-pkgname=('plasma5-themes-ghost' 'sddm-ghost-theme')
+pkgname=('plasma5-themes-ghost' 'sddm-ghost-theme' 'gtk-themes-ghost')
 pkgver=0.0.1
-pkgrel=9
-_gitcommit=ca97142ddc3d8d3e6ce03f5d18c7655b4f93cd2b
+pkgrel=11
+_gitcommit=760a922d22e503f6dfd4c39eeae0a076687b31ee
 url=https://github.com/Strit/artwork-ghost/
 arch=('any')
 license=('LGPL')
@@ -30,7 +30,7 @@ build() {
 
 package_plasma5-themes-ghost() {
   pkgdesc='Ghost theme for KDE Plasma 5'
-  depends=('breeze')
+  depends=('breeze' 'gtk-themes-ghost')
   optdepends=('breath-icon-theme: light icon theme'
               'breath-dark-icon-theme: dark icon theme')
   replaces=('ghost-themes')
@@ -54,3 +54,11 @@ package_sddm-ghost-theme() {
   rm -rf "${pkgdir}/usr/share/wallpapers"
   rm -rf "${pkgdir}/usr/share/aurorae/"
 } 
+
+package_gtk-themes-ghost() {
+  pkgdesc="Ghost theme for gtk2 and gtk3"
+  depends=('gtk2' 'gtk3')
+
+  install -dm755 ${pkgdir}/usr/share/themes/
+  cp -r ${srcdir}/ghost/Ghost "${pkgdir}/usr/share/themes/"
+}
