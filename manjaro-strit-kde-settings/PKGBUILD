@@ -1,7 +1,7 @@
 # Maintainer: Dan Johansen <strit83@gmail.com>
 
 pkgname=manjaro-strit-kde-settings
-pkgver=20170508
+pkgver=20170510
 pkgrel=1
 pkgdesc="Manjaro Strit KDE settings"
 depends=('breath-icon-theme' 'plasma5-themes-ghost' 'manjaro-artwork')
@@ -11,7 +11,7 @@ arch=('any')
 url="https://www.strits.dk"
 license=('GPL')
 source=($pkgname.tar.gz)
-sha256sums=('3345ebcd3ddcb8e0f5df3625735536fc245a453ed0665edf3ae544c0e8cbd11f')
+sha256sums=('80ef3e0a364626ee30f7bdb359a41291974ceac7d786f65efdf1115f94eea306')
 
 pkgver() {
 	date +%Y%m%d
