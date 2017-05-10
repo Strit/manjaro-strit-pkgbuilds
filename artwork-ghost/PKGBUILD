@@ -3,8 +3,8 @@
 pkgbase=artwork-ghost
 pkgname=('plasma5-themes-ghost' 'sddm-ghost-theme' 'gtk-themes-ghost')
 pkgver=0.0.1
-pkgrel=11
-_gitcommit=760a922d22e503f6dfd4c39eeae0a076687b31ee
+pkgrel=12
+_gitcommit=a0b5150af93d8393d1a1ebb2ead55a1ff2d2b674
 url=https://github.com/Strit/artwork-ghost/
 arch=('any')
 license=('LGPL')
@@ -39,6 +39,7 @@ package_plasma5-themes-ghost() {
   rm -rf "${pkgdir}/usr/share/sddm"
   rm -rf "${pkgdir}/usr/share/icons"
   rm -rf "${pkgdir}/usr/share/wallpapers"
+  rm -rf "${pkgdir}/usr/share/themes"
 }
 
 package_sddm-ghost-theme() {
@@ -52,7 +53,9 @@ package_sddm-ghost-theme() {
   rm -rf "${pkgdir}/usr/share/metainfo"
   rm -rf "${pkgdir}/usr/share/plasma"
   rm -rf "${pkgdir}/usr/share/wallpapers"
-  rm -rf "${pkgdir}/usr/share/aurorae/"
+  rm -rf "${pkgdir}/usr/share/aurorae"
+  rm -rf "${pkgdir}/usr/share/themes"
+  rm -rf "${pkgdir}/usr/share/konsole"
 } 
 
 package_gtk-themes-ghost() {
