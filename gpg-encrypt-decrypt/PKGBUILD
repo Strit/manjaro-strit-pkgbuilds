@@ -2,44 +2,17 @@
 
 pkgname=gpg-encrypt-decrypt
 pkgver=0.1
-pkgrel=3
-#epoch=
+pkgrel=4
 pkgdesc="A couple of small scripts for encrypting and decrypting files and folders with GPG"
 arch=('any')
-#url=""
+url="https://www.strits.dk"
 license=('Unknown')
-#groups=(manjaro-strit)
-#depends=()
-#makedepends=()
-#checkdepends=()
-#optdepends=()
-provides=(gpg-encrypt-decrypt)
-#conflicts=()
-#replaces=()
-#backup=(decrypt encrypt)
-#options=()
-#install=
-#changelog=
+groups=(manjaro-strit)
+
+
 source=('encrypt'
 	'decrypt')
-#noextract=()
-#validpgpkeys=()
 
-#prepare() {
-#	cd "$pkgname-$pkgver"
-#	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
-#}
-
-#build() {
-#	cd "$pkgname-$pkgver"
-#	./configure --prefix=/usr
-#	make
-#}
-
-#check() {
-#	cd "$pkgname-$pkgver"
-#	make -k check
-#}
 
 package() {
 	install -dm755 $pkgdir/opt/$pkgname/
