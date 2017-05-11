@@ -3,8 +3,8 @@
 pkgbase=artwork-ghost
 pkgname=('plasma5-themes-ghost' 'sddm-ghost-theme' 'gtk-themes-ghost')
 pkgver=0.0.1
-pkgrel=12
-_gitcommit=a0b5150af93d8393d1a1ebb2ead55a1ff2d2b674
+pkgrel=13
+_gitcommit=80cf5f79fddb733fb3bf790fbb3a835f2bf52362
 url=https://github.com/Strit/artwork-ghost/
 arch=('any')
 license=('LGPL')
