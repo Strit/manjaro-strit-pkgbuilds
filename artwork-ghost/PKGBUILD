@@ -3,8 +3,8 @@
 pkgbase=artwork-ghost
 pkgname=('plasma5-themes-ghost' 'sddm-ghost-theme' 'gtk-themes-ghost')
 pkgver=0.0.1
-pkgrel=13
-_gitcommit=80cf5f79fddb733fb3bf790fbb3a835f2bf52362
+pkgrel=14
+_gitcommit=aff895990f05d9db51b4b3642c1ad5828d6595cd
 url=https://github.com/Strit/artwork-ghost/
 arch=('any')
 license=('LGPL')
@@ -60,7 +60,7 @@ package_sddm-ghost-theme() {
 
 package_gtk-themes-ghost() {
   pkgdesc="Ghost theme for gtk2 and gtk3"
-  depends=('gtk2' 'gtk3')
+#  depends=('gtk2' 'gtk3')
 
   install -dm755 ${pkgdir}/usr/share/themes/
   cp -r ${srcdir}/ghost/Ghost "${pkgdir}/usr/share/themes/"
