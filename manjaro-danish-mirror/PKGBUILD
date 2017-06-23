@@ -2,7 +2,7 @@
 
 pkgname=manjaro-danish-mirror
 pkgver=1.2
-pkgrel=18
+pkgrel=19
 pkgdesc="The Danish mirror used for Manjaro Strit"
 arch=('any')
 url="https://mirror.strits.dk"
