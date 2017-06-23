@@ -1,17 +1,18 @@
 #!/bin/sh
 
 post_install() {
-	/usr/bin/pacman-mirrors -g
+	sed -i 's/.*OnlyCountry=.*/OnlyCountry=Custom/' /etc/pacman-mirrors.conf
 	message
 }
 
 
 post_upgrade() {
-	/usr/bin/pacman-mirrors -g --no-update
+	sed -i 's/.*OnlyCountry=.*/OnlyCountry=Custom/' /etc/pacman-mirrors.conf
 	message
 }
 
 message() {
 	echo ""
-	echo "hint: use \`pacman-mirrors\` to generate and update your pacman mirrorlist."
+	echo "Mirrorlist set to custom mirrorlist, which is mirror.strits.dk."
+	echo "To change it back to worldwide run pacman-mirrors -c ALL."
 }

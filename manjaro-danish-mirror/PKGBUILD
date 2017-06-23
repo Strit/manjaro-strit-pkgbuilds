@@ -2,45 +2,18 @@
 
 pkgname=manjaro-danish-mirror
 pkgver=1.2
-pkgrel=17
-#epoch=
+pkgrel=18
 pkgdesc="The Danish mirror used for Manjaro Strit"
 arch=('any')
 url="https://mirror.strits.dk"
 license=('Unknown')
 groups=(manjaro-strit)
-#depends=()
-#makedepends=()
-#checkdepends=()
-#optdepends=()
-provides=(manjaro-danish-mirror)
-conflicts=(manjaro-danish-mirror)
-#replaces=()
-#backup=()
-#options=()
+depends=(pacman-mirrors)
 install=manjaro-danish-mirror.install
-#changelog=
-source=("Denmark")
-#noextract=()
-#validpgpkeys=()
+source=("custom-mirrors.json")
 
-#prepare() {
-#	cd "$pkgname-$pkgver"
-#	patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
-#}
-
-#build() {
-#	cd "$pkgname-$pkgver"
-#	./configure --prefix=/usr
-#	make
-#}
-
-#check() {
-#	cd "$pkgname-$pkgver"
-#	make -k check
-#}
 
 package() {
-	install -Dm755 ${srcdir}/Denmark ${pkgdir}/etc/pacman.d/mirrors/Denmark
+	install -Dm755 ${srcdir}/custom-mirrors.json ${pkgdir}/var/lib/pacman-mirrors/custom-mirrors.json
 }
-md5sums=('6bfb108c624caccda134a7dbc5bf1479')
+md5sums=('de5500a9a3b96b0a2a8bf6145829179f')

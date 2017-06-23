@@ -1,0 +1,9 @@
+[
+    {
+        "country": "Denmark",
+        "protocols": [
+            "http"
+        ],
+        "url": "http://mirror.strits.dk/manjaro/"
+    }
+] 
