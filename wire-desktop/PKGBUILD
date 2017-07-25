@@ -8,7 +8,7 @@ url='https://wire.com/'
 license=('GPL3')
 conflicts=('wire-desktop-bin')
 depends=('alsa-lib' 'gconf' 'gtk2' 'libxss' 'libxtst' 'nss')
-makedepends=('gendesk' 'grunt-cli' 'npm' 'python2' 'git')
+makedepends=('cargo' 'gendesk' 'npm' 'python2' 'git')
 optdepends=('hunspell-en: for English spellcheck support')
 provides=('wire-desktop')
 source=("${pkgver}.tar.gz::https://github.com/wireapp/wire-desktop/archive/release/"$pkgver".tar.gz")        
@@ -21,7 +21,7 @@ prepare() {
 build() {
   cd "${srcdir}/${pkgname}-release-${pkgver}"
   npm install
-  grunt 'clean:linux' 'update-keys' 'release-prod'
+  $(npm bin)/grunt 'clean:linux' 'update-keys' 'release-prod' 'bundle'
   if [ $CARCH == 'x86_64' ]; then
     build_arch="x64"
   elif [ $CARCH == 'i686' ]; then
@@ -29,7 +29,7 @@ build() {
   else
     echo "Unsupported architecture"; exit 1;
   fi
-  grunt --arch=${build_arch} --target="dir" "electronbuilder:linux_other"
+  $(npm bin)/grunt --arch=${build_arch} --target="dir" "electronbuilder:linux_other"
 }
 
 package() {
