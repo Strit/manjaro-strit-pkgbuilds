@@ -50,7 +50,7 @@ build()
 package_simulationcraft-data-git()
 {
   pkdesc+="data"
-  arch=("any")
+#  arch=("any")
   cd "$srcdir/simulationcraft"
   for profile in $( find profiles -type f); do
     install -Dm644 $profile   "$pkgdir/usr/share/simulationcraft/$profile"
