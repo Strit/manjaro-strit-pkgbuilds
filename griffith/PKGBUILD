@@ -64,7 +64,7 @@ build() {
 
 package() {
     #cd "${pkgname}-${pkgver}"
-    cd "${pkgname}-master-${_gitcommit}"
+    cd "${pkgname}-${pkgver}-${_gitcommit}"
 
     make DESTDIR=${pkgdir} install
 
