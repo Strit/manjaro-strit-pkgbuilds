@@ -12,8 +12,8 @@
 
 pkgname="griffith"
 pkgver=0.14
-pkgrel=1
-_gitcommit=b29f9151517c847dd0d9525968197fa78a49033c
+pkgrel=2
+_gitcommit=54c59e95252790b289c179a009f90e2eaeef039d
 pkgdesc="Movie collection manager application"
 arch=('any')
 url="https://gitlab.com/Strit/griffith"
@@ -25,12 +25,12 @@ optdepends=('python2-psycopg2: postgreSQL support'
             'python2-chardet: encoding detection of imported CSV files'
             'python2-gtkspell: spell checking support'
             'griffith-extra-artwork: additional icons')
-source=("$pkgname-$pkgver-$pkgrel.tar.gz::$url/repository/master/archive.tar.gz")
+source=("$pkgname-$pkgver-$pkgrel.tar.gz::$url/repository/$pkgver/archive.tar.gz")
 sha256sums=('SKIP')
 
 build() {
     #cd "${pkgname}-${pkgver}"
-    cd "${pkgname}-master-${_gitcommit}"
+    cd "${pkgname}-${pkgver}-${_gitcommit}"
     
     # python2 fix
     sed -i 's_#!.*/usr/bin/env.*python_#!/usr/bin/env python2_' griffith
