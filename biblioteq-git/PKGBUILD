@@ -9,6 +9,7 @@ arch=('i686' 'x86_64')
 url="https://github.com/textbrowser/biblioteq"
 license=('BSD')
 depends=('qt5-base' 'yaz')
+make_depends=('git')
 #optdepends=()
 source=("git+https://github.com/textbrowser/biblioteq")
 sha256sums=('SKIP')
