@@ -1,0 +1,39 @@
+# Maintainer: Dan Johansen <strit83 at gmail dot com>
+
+pkgname="biblioteq-git"
+_pkgname="biblioteq"
+pkgver=2017.08.19.r58.gf83addd
+pkgrel=1
+pkgdesc="Media collection manager application"
+arch=('i686' 'x86_64')
+url="https://github.com/textbrowser/biblioteq"
+license=('BSD')
+depends=('qt5-base' 'yaz')
+#optdepends=()
+source=("git+https://github.com/textbrowser/biblioteq")
+sha256sums=('SKIP')
+
+
+pkgver() {
+	cd "$_pkgname"
+	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    cd "${_pkgname}"
+    qmake -o Makefile biblioteq.pro
+    make
+}
+
+package() {
+    #cd "${pkgname}-${pkgver}"
+    #cd "${srcdir}/${_pkgname}"
+    #make install DESTDIR=${pkgdir}
+    install -dm644 "${pkgdir}/usr/share/${_pkgname}"
+    install -dm644 "${pkgdir}/usr/bin/"
+    cp -r "${srcdir}/${_pkgname}/" "${pkgdir}/usr/share/"
+    ln -s "${pkgdir}/usr/share/${_pkgname}/BiblioteQ" "${pkgdir}/usr/bin/${_pkgname}"
+}
+
+# vim:set ts=4 sw=2 ft=sh et:
+ 
