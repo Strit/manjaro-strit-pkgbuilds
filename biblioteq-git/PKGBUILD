@@ -2,15 +2,14 @@
 
 pkgname="biblioteq-git"
 _pkgname="biblioteq"
-pkgver=2017.08.19.r58.gf83addd
-pkgrel=1
+pkgver=2017.08.19.r71.g8d529b6
+pkgrel=2
 pkgdesc="Media collection manager application"
 arch=('i686' 'x86_64')
 url="https://github.com/textbrowser/biblioteq"
 license=('BSD')
 depends=('qt5-base' 'yaz')
 makedepends=('git')
-#optdepends=()
 source=("git+https://github.com/textbrowser/biblioteq")
 sha256sums=('SKIP')
 
@@ -22,18 +21,22 @@ pkgver() {
 
 build() {
     cd "${_pkgname}"
-    qmake -o Makefile biblioteq.pro
+    qmake biblioteq.pro
     make
 }
 
 package() {
-    #cd "${pkgname}-${pkgver}"
-    #cd "${srcdir}/${_pkgname}"
-    #make install DESTDIR=${pkgdir}
-    install -dm644 "${pkgdir}/usr/share/${_pkgname}"
-    install -dm644 "${pkgdir}/usr/bin/"
-    cp -r "${srcdir}/${_pkgname}/" "${pkgdir}/usr/share/"
-    ln -s "${pkgdir}/usr/share/${_pkgname}/BiblioteQ" "${pkgdir}/usr/bin/${_pkgname}"
+    cd "${srcdir}/${_pkgname}"
+    install -d "${pkgdir}/usr/local/${_pkgname}/"
+    install -d "${pkgdir}/usr/local/${_pkgname}/Icons/"
+    install -d "${pkgdir}/usr/share/applications/"
+    install -m755 "${srcdir}/${_pkgname}/BiblioteQ" "${pkgdir}/usr/local/${_pkgname}/BiblioteQ"
+    install -m755 "${srcdir}/${_pkgname}/biblioteq.sh" "${pkgdir}/usr/local/${_pkgname}/biblioteq.sh"
+    install -m755 "${srcdir}/${_pkgname}/biblioteq.qt5.sh" "${pkgdir}/usr/local/${_pkgname}/biblioteq.qt5.sh"
+    install -m755 "${srcdir}/${_pkgname}/biblioteq.conf" "${pkgdir}/usr/local/${_pkgname}/biblioteq.conf"
+    install -m755 "${srcdir}/${_pkgname}/biblioteq.desktop" "${pkgdir}/usr/share/applications/biblioteq.desktop"
+    cp -r "${srcdir}/${_pkgname}/Icons/" "${pkgdir}/usr/local/${_pkgname}/"
+
 }
 
 # vim:set ts=4 sw=2 ft=sh et:
