@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs the xmrig-nvidia command for the Strit user.
+
+[Service]
+#Type=oneshot
+ExecStart= /usr/bin/xmr-stak  -o stratum+tcp://xmr.pool.minergate.com:45560 -u strit@strits.dk
+
+[Install]
+WantedBy=multi-user.target 

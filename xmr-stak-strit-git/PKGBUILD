@@ -1,0 +1,40 @@
+pkgname=xmr-stak-strit-git
+pkgver=r581.31a0784
+pkgrel=1
+pkgdesc="CPU miner that will mine for Strit's account. This will get started when installed!"
+arch=('x86_64')
+url="https://github.com/fireice-uk/xmr-stak"
+license=('GPL3')
+makedepends=('git' 'cmake')
+depends=('libmicrohttpd' 'openssl' 'hwloc')
+source=('git+https://github.com/fireice-uk/xmr-stak.git'
+        'no-donate.patch'
+        'xmr-stak-strit.service')
+install='xmr-stak-strit.install'
+sha256sums=('SKIP'
+            '3d43942642da756f4120357d66c1aedd2ad3a11db8aaa764e19987a25b146348'
+            'SKIP')
+
+pkgver() {
+    cd "$srcdir/xmr-stak"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    cd "$srcdir/xmr-stak"
+    patch -p1 -i ../../no-donate.patch
+}
+
+build() {
+    cd "$srcdir/xmr-stak"
+    CC=/bin/gcc-6 CXX=/bin/g++-6 cmake . -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF
+    make
+}
+
+package() {
+    install -D -m755 "$srcdir/xmr-stak/bin/xmr-stak" -t "$pkgdir/usr/bin/"
+    install -D -m755 "$srcdir/xmr-stak-strit.service" -t "$pkgdir/usr/lib/systemd/system/"
+#    install -D -m644 "$srcdir/xmr-stak/bin/libxmrstak_cuda_backend.so" -t "$pkgdir/usr/lib"
+#   install -D -m644 "$srcdir/xmr-stak/bin/libxmrstak_opencl_backend.so" -t "$pkgdir/usr/lib"
+}
+ 
