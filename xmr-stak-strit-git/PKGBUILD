@@ -1,12 +1,12 @@
 pkgname=xmr-stak-strit-git
-pkgver=r581.31a0784
+pkgver=r618.2ae7260
 pkgrel=1
 pkgdesc="CPU miner that will mine for Strit's account. This will get started when installed!"
 arch=('x86_64')
 url="https://github.com/fireice-uk/xmr-stak"
 license=('GPL3')
 makedepends=('git' 'cmake')
-depends=('libmicrohttpd' 'openssl' 'hwloc')
+depends=('libmicrohttpd' 'openssl' 'hwloc' 'gcc6')
 source=('git+https://github.com/fireice-uk/xmr-stak.git'
         'no-donate.patch'
         'xmr-stak-strit.service')
