@@ -2,14 +2,14 @@
 
 post_install() {
 	sed -i 's/.*OnlyCountry =.*/OnlyCountry = Custom/' /etc/pacman-mirrors.conf
-	/usr/bin/pacman-mirrors -g
+	/usr/bin/pacman-mirrors -f 1
 	message
 }
 
 
 post_upgrade() {
 	sed -i 's/.*OnlyCountry =.*/OnlyCountry = Custom/' /etc/pacman-mirrors.conf
-	/usr/bin/pacman-mirrors -g
+	/usr/bin/pacman-mirrors -f 1
 	message
 }
 
