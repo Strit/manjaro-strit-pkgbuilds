@@ -1,12 +1,12 @@
 # Maintainer: Dan Johansen <strit83@gmail.com>
 
 pkgname=manjaro-danish-mirror
-pkgver=20170623
+pkgver=20171228
 pkgrel=1
 pkgdesc="The Danish mirror used for Manjaro Strit. WARNING! Installing this package will set the mirror to be the only one used!"
 arch=('any')
 url="https://mirror.strits.dk"
-license=('Unknown')
+license=('GPL')
 groups=(manjaro-strit)
 depends=(pacman-mirrors)
 install=manjaro-danish-mirror.install
