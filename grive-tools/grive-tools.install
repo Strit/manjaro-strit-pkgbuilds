@@ -1,4 +1,0 @@
-post_install() {
-	chmod 755 /opt/grive-tools/grive-indicator
-}
-
