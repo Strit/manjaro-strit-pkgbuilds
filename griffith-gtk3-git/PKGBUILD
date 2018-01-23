@@ -10,33 +10,29 @@
 # Contributor: Pawel Rusinek <p.rusinek at gmail dot com>
 # Contributor: Jashua Gentry <https://gitlab.com/pixel293>
 
-pkgname="griffith-gtk3-git"
+pkgname="griffith-gtk3-dev"
 _pkgname="griffith"
-pkgver=0.14.r2.g7d4824a
-pkgrel=1
+pkgver=0.15
+pkgrel=2
+_gitcommit=05b5803f770818d6309b0946e77de6e523b51fc9
 pkgdesc="Movie collection manager application"
 arch=('any')
-url="https://gitlab.com/Strit/griffith"
+url="https://gitlab.com/strit/griffith"
 license=('GPL2')
-depends=('sqlite' 'python2-pysqlite'  'python-reportlab' 'python-pillow' 'python-sqlalchemy' 'python-gobject2')
+provides=("griffith")
+depends=('python-gobject' 'sqlite' 'python-reportlab' 'python-pillow' 'python-sqlalchemy')
 optdepends=('python-psycopg2: postgreSQL support'
             'mysql-python: MySQL support'
             'python-chardet: encoding detection of imported CSV files'
             'python-gtkspell: spell checking support'
-            'griffith-extra-artwork: additional icons')
-source=("git+https://gitlab.com/johncheetham/griffith")
+            'griffith-extra-artwork: additional icons'
+            'python-tmdbsimple: For TMDB Import support')
+source=("$_pkgname-$_gitcommit-$pkgrel.tar.gz::$url/repository/master/archive.tar.gz")
 sha256sums=('SKIP')
 
-
-pkgver() {
-	cd "$_pkgname"
-	git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
-}
-
 build() {
-    cd "${_pkgname}"
-    git checkout gtk3port
-    #cd "${pkgname}-${pkgver}-${_gitcommit}"
+    #cd "${pkgname}-${pkgver}"
+    cd "${_pkgname}-master-${_gitcommit}"
     
     # python2 fix
     #sed -i 's_#!.*/usr/bin/env.*python_#!/usr/bin/env python2_' griffith
@@ -70,7 +66,7 @@ build() {
 
 package() {
     #cd "${pkgname}-${pkgver}"
-    cd "${srcdir}/${_pkgname}"
+    cd "${_pkgname}-master-${_gitcommit}"
 
     make DESTDIR=${pkgdir} install
 
