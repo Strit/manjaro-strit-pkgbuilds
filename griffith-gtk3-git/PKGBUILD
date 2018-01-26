@@ -10,10 +10,10 @@
 # Contributor: Pawel Rusinek <p.rusinek at gmail dot com>
 # Contributor: Jashua Gentry <https://gitlab.com/pixel293>
 
-pkgname="griffith-gtk3-dev"
+pkgname="griffith-gtk3-git"
 _pkgname="griffith"
 pkgver=0.15
-pkgrel=2
+pkgrel=3
 _gitcommit=05b5803f770818d6309b0946e77de6e523b51fc9
 pkgdesc="Movie collection manager application"
 arch=('any')
