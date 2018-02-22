@@ -6,6 +6,7 @@
 * audacious-plugins-qt5 (dependency of audacious-qt5)
 * audacious-qt5 (Audio player)
 * biblioteq-git (Library application)
+* cantata-git (Audio player)
 * discord (Chat application)
 * etcher (Image to USB burner)
 * gpg-encrypt-decrypt (Small encryption scripts)
