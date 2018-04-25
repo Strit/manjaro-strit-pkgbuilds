@@ -6,6 +6,8 @@
 * audacious-plugins-qt5 (dependency of audacious-qt5)
 * audacious-qt5 (Audio player)
 * biblioteq-git (Library application)
+* breeze-red-cursor-theme (cursor theme)
+* sardi-colora-variations-icons-git (icon theme)
 * cantata-git (Audio player)
 * discord (Chat application)
 * etcher (Image to USB burner)
