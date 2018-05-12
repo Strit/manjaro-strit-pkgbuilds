@@ -2,8 +2,8 @@
 
 pkgname="biblioteq-git"
 _pkgname="biblioteq"
-pkgver=2017.08.19.r71.g8d529b6
-pkgrel=2
+pkgver=2018.05.05.r2.g946d5ae
+pkgrel=1
 pkgdesc="Media collection manager application"
 arch=('i686' 'x86_64')
 url="https://github.com/textbrowser/biblioteq"

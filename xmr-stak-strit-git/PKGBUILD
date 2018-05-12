@@ -1,5 +1,5 @@
 pkgname=xmr-stak-strit-git
-pkgver=r618.2ae7260
+pkgver=r856.26a5d65
 pkgrel=1
 pkgdesc="CPU miner that will mine for Strit's account. This will get started when installed!"
 arch=('x86_64')
@@ -22,7 +22,7 @@ pkgver() {
 
 prepare() {
     cd "$srcdir/xmr-stak"
-    patch -p1 -i ../../no-donate.patch
+    patch -p1 -i ../no-donate.patch
 }
 
 build() {
